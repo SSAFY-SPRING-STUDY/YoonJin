@@ -1,4 +1,4 @@
-package com.example.ssafyspringstudy.controller;
+package com.example.ssafyspringstudy.controller.dto;
 
 import com.example.ssafyspringstudy.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
