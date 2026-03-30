@@ -1,9 +1,13 @@
 package com.example.ssafyspringstudy.repository;
 
+
+import lombok.Getter;
+
+@Getter
 public class createPostRequest {
     public String title;
     public String content;
-    public String Author;
+    public String author;
 
 
     @Override
@@ -11,7 +15,7 @@ public class createPostRequest {
         return "createPostRequest{" +
                 "title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", Author='" + Author + '\'' +
+                ", author='" + author + '\'' +
                 '}';
     }
 }

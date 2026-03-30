@@ -1,32 +1,62 @@
 package com.example.ssafyspringstudy.controller;
 
+import com.example.ssafyspringstudy.controller.dto.PostRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-import com.example.ssafyspringstudy.repository.PostResponse;
+import org.springframework.web.bind.annotation.*;
+import com.example.ssafyspringstudy.controller.dto.PostResponse;
 import com.example.ssafyspringstudy.service.PostService;
 import com.example.ssafyspringstudy.repository.createPostRequest;
 
+import java.util.List;
+
 @RestController
 public class PostController {
-    private final PostService poseservice;
+    private final PostService postService;
 
     @Autowired
-    public PostController(PostService poseservice) {
-        this.poseservice = poseservice;
+    public PostController(PostService postService) {
+        this.postService = postService;
     }
 
     //게시글 생성
     @PostMapping("/api/posts")
-    public String createPost(@RequestBody createPostRequest request){
-        System.out.println(request);
+    public PostResponse createPost(@RequestBody createPostRequest request){
+        PostRequest serviceRequest = new PostRequest(
+                request.title,
+                request.content,
+                request.author
+        );
 
-        PostResponse response = PostService.save(request);
+
+        return postService.save(serviceRequest);
+    }
 
 
-        return "";
+    //모든 게시글 조회
+    @GetMapping("/api/posts")
+    public List<PostResponse> findAllPosts(){
+        return postService.findAll();
+    }
 
+
+    //특정 게시글 조회
+    @GetMapping("/api/posts/{id}")
+    public PostResponse findPostById(@PathVariable Long id){
+        PostResponse response = postService.findById(id);
+
+        return postService.findById(id);
+    }
+
+    //게시물 수정
+    @PutMapping("/api/posts/{id}")
+    public void updatePost(@PathVariable Long id, @RequestBody PostRequest request){
+        postService.update(id,request);
+    }
+
+    //게시물 삭제
+    @DeleteMapping("/api/posts/{id}")
+    public void deletePost(@PathVariable Long id){
+        postService.delete(id);
     }
 
 
