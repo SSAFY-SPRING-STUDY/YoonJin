@@ -16,7 +16,7 @@ public class PostService {
 
     private final PostRepository postRepository;
 
-    @Autowired
+
     public PostService(PostRepository postRepository){
         this.postRepository = postRepository;
     }
@@ -65,10 +65,7 @@ public class PostService {
     }
     //수정
     public void update(Long id, PostRequest request){
-        PostEntity entity = postRepository.findById(id).orElse(null);
-        if(entity != null){
-            entity.update(request.getTitle(), request.getContent());
-        }
+        postRepository.findById(id).ifPresent(entity->entity.update(request.getTitle(),request.getContent()));
     }
 
     //삭제

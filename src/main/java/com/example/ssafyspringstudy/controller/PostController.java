@@ -1,6 +1,7 @@
 package com.example.ssafyspringstudy.controller;
 
 import com.example.ssafyspringstudy.controller.dto.PostRequest;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.example.ssafyspringstudy.controller.dto.PostResponse;
@@ -10,13 +11,14 @@ import com.example.ssafyspringstudy.repository.createPostRequest;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class PostController {
     private final PostService postService;
 
-    @Autowired
-    public PostController(PostService postService) {
-        this.postService = postService;
-    }
+
+//    public PostController(PostService postService) {
+//        this.postService = postService;
+//    } //@RequiredArgsConstructor는 필수 인자를 가진 생성자를 자동으로 생성해준다.
 
     //게시글 생성
     @PostMapping("/api/posts")
