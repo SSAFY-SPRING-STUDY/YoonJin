@@ -1,4 +1,4 @@
-package com.example.ssafyspringstudy.repository;
+package com.example.ssafyspringstudy.domain.post.repository;
 
 
 import lombok.Getter;

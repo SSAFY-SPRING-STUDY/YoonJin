@@ -1,6 +1,6 @@
-package com.example.ssafyspringstudy.repository;
+package com.example.ssafyspringstudy.domain.post.repository;
 
-import com.example.ssafyspringstudy.entity.PostEntity;
+import com.example.ssafyspringstudy.domain.post.PostEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

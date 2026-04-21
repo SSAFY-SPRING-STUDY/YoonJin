@@ -1,10 +1,9 @@
-package com.example.ssafyspringstudy.service;
+package com.example.ssafyspringstudy.domain.post.service;
 
-import com.example.ssafyspringstudy.controller.dto.PostRequest;
-import com.example.ssafyspringstudy.controller.dto.PostResponse;
-import com.example.ssafyspringstudy.entity.PostEntity;
-import com.example.ssafyspringstudy.repository.PostRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.ssafyspringstudy.domain.post.controller.dto.PostRequest;
+import com.example.ssafyspringstudy.domain.post.controller.dto.PostResponse;
+import com.example.ssafyspringstudy.domain.post.PostEntity;
+import com.example.ssafyspringstudy.domain.post.repository.PostRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
