@@ -1,4 +1,4 @@
-package com.example.ssafyspringstudy.service;
+package com.example.ssafyspringstudy.domain.post.service;
 
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.example.ssafyspringstudy.entity;
+package com.example.ssafyspringstudy.domain.post;
 
 import lombok.Getter;
 //db에 직접적으로 들어가는 것

@@ -1,4 +1,4 @@
-package com.example.ssafyspringstudy.controller.dto;
+package com.example.ssafyspringstudy.domain.post.controller.dto;
 
 import lombok.Getter;
 

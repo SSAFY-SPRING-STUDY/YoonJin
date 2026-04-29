@@ -1,4 +1,4 @@
-package com.example.ssafyspringstudy.controller.dto;
+package com.example.ssafyspringstudy.domain.post.controller.dto;
 
 public class PostResponse {
     //dto - data transfer object => 데이터를 안전하게 이동하기 위한 택배 박스

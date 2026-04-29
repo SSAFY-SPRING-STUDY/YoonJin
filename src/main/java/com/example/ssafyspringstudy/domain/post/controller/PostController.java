@@ -1,12 +1,11 @@
-package com.example.ssafyspringstudy.controller;
+package com.example.ssafyspringstudy.domain.post.controller;
 
-import com.example.ssafyspringstudy.controller.dto.PostRequest;
+import com.example.ssafyspringstudy.domain.post.controller.dto.PostRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.example.ssafyspringstudy.controller.dto.PostResponse;
-import com.example.ssafyspringstudy.service.PostService;
-import com.example.ssafyspringstudy.repository.createPostRequest;
+import com.example.ssafyspringstudy.domain.post.controller.dto.PostResponse;
+import com.example.ssafyspringstudy.domain.post.service.PostService;
+import com.example.ssafyspringstudy.domain.post.repository.createPostRequest;
 
 import java.util.List;
 
