@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public class MemberEntity {
     private  static long AUTO_INCREMENT = 1L;
-    private long id;
+    private Long id;
     private String loginId;
     private String password;
     private String name;

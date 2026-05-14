@@ -4,6 +4,8 @@ import com.example.ssafyspringstudy.domain.member.controller.dto.MemberRequest;
 import com.example.ssafyspringstudy.domain.member.controller.dto.MemberResponse;
 import com.example.ssafyspringstudy.domain.member.entity.MemberEntity;
 import com.example.ssafyspringstudy.domain.member.repository.MemberRepository;
+import com.example.ssafyspringstudy.global.exception.CustomException;
+import com.example.ssafyspringstudy.global.exception.error.ErrorCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +24,7 @@ public class MemberService {
     public MemberResponse findById(Long memberId) {
         MemberEntity entity = memberRepository.findById(memberId)
                 .orElseThrow(
-                        () -> new RuntimeException("사용자를 찾을 수 없습니다.")
+                        () -> new CustomException(ErrorCode.MEMBER_NOT_FOUND)
                 );
                 return MemberResponse.fromEntity(entity);
 
