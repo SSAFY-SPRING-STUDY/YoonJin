@@ -1,10 +1,19 @@
 package com.example.ssafyspringstudy.domain.member.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class MemberEntity {
-    private  static long AUTO_INCREMENT = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String loginId;
     private String password;
@@ -12,7 +21,6 @@ public class MemberEntity {
 
 
     public MemberEntity(String loginId, String password, String name){
-        this.id = AUTO_INCREMENT++;
         this.loginId = loginId;
         this.password = password;
         this.name = name;

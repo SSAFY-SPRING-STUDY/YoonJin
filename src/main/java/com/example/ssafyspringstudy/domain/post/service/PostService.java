@@ -9,6 +9,7 @@ import com.example.ssafyspringstudy.domain.post.PostEntity;
 import com.example.ssafyspringstudy.domain.post.repository.PostRepository;
 import com.example.ssafyspringstudy.global.exception.CustomException;
 import com.example.ssafyspringstudy.global.exception.error.ErrorCode;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -57,6 +58,8 @@ public class PostService {
 
 
     //수정
+    //이 부분도 찾아보기
+    @Transactional
     public PostResponse update(PostRequest request, Long id, Long authorId){
         MemberEntity author = memberRepository.findById(authorId)
                 .orElseThrow(() -> new CustomException(ErrorCode.MEMBER_NOT_FOUND));
