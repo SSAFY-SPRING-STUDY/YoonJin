@@ -11,11 +11,11 @@ public record PostResponse (
         MemberResponse memberResponse
 
 ){
-    public static PostResponse fromEntity(PostEntity entity, MemberResponse memberResponse){
-        return new PostResponse(entity.getId(),
-                entity.getTitle(),
-                entity.getContent(),
-                memberResponse
+    public static PostResponse fromEntity(PostEntity post){
+        return new PostResponse(post.getId(),
+                post.getTitle(),
+                post.getContent(),
+                MemberResponse.fromEntity(post.getAuthor())
                 );
     }
 }

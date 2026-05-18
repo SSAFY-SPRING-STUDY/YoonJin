@@ -28,11 +28,22 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MissingRequestHeaderException.class)
-    public ResponseEntity<ApiResponse<Void>> handleException(Exception e){
-        log.error("예외 발생, e");
+    public ResponseEntity<ApiResponse<Void>> handleMissingRequestHeaderException(Exception e){
+        log.error("요청 헤더 누락 에러 발생", e);
 
         return ResponseEntity
                 .status(ErrorCode.INTERNAL_SERVER_ERROR.getStatus())
                 .body(ApiResponse.error(ErrorCode.INTERNAL_SERVER_ERROR));
     }
+
+    @ExceptionHandler(Exception.class)
+        public ResponseEntity<ApiResponse<Void>> handleException(Exception e){
+        log.error("예상치 못한 예외가 발생했습니다.",e);
+
+        return ResponseEntity
+                .status(ErrorCode.INTERNAL_SERVER_ERROR.getStatus())
+                .body(ApiResponse.error(ErrorCode.INTERNAL_SERVER_ERROR));
+
+    }
+
 }

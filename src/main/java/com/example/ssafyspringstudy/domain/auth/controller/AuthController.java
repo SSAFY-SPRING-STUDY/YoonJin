@@ -33,7 +33,7 @@ public class AuthController {
             String accesstoken  = Authorizationutils.getAccessToken(authHeader);
             authService.logout(accesstoken);
 
-            return ApiResponse.success();
+            return ApiResponse.success("로그아웃이 완료되었습니다.");
 
 
         }
