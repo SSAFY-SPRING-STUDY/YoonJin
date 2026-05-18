@@ -39,6 +39,9 @@ public class PostRepository {
         postList.removeIf(post -> post.getId().equals(id));
     }
 
+    public void delete(PostEntity postEntity){
+        postList.remove(postEntity);
+    }
 
 
 
