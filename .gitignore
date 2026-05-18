@@ -70,8 +70,7 @@ Temporary Items
 # iCloud generated files
 *.icloud
 
-
-
+mysql_data/
 .env
 .env.local
 .env.*.local

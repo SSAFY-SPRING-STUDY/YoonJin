@@ -9,11 +9,11 @@ public record MemberResponse(
         String name
 ){
 
-    public static MemberResponse fromEntity(MemberEntity entity){
+    public static MemberResponse fromEntity(MemberEntity post){
         return new MemberResponse(
-                entity.getId(),
-                entity.getLoginId(),
-                entity.getName()
+                post.getId(),
+                post.getLoginId(),
+                post.getName()
 
         );
     }

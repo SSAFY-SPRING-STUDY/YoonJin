@@ -6,6 +6,8 @@ import com.example.ssafyspringstudy.domain.auth.controller.dto.LoginResponse;
 import com.example.ssafyspringstudy.domain.member.entity.MemberEntity;
 import com.example.ssafyspringstudy.domain.member.repository.MemberRepository;
 import com.example.ssafyspringstudy.domain.member.service.MemberService;
+import com.example.ssafyspringstudy.global.exception.CustomException;
+import com.example.ssafyspringstudy.global.exception.error.ErrorCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,16 +21,18 @@ public class AuthService {
     private final SessionManager sessionManager;
     private final MemberRepository memberRepository;
 
+
+
     public LoginResponse login(LoginRequest request) {
         MemberEntity member = memberRepository.findByLoginId(request.loginId())
-                .orElseThrow(() -> new RuntimeException("아이디가 올바르지 않습니다."));
+                .orElseThrow(() -> new CustomException(ErrorCode.INVALID_USERNAME));
 
         if(member.isValidPassword(request.password())){
             String token = sessionManager.createSession(member.getId());
             return new LoginResponse(token,"Bearer");
 
         }
-        throw new RuntimeException("비밀번호가 올바르지 않습니다.");
+        throw new CustomException(ErrorCode.INVALID_PASSWORD);
 
     }
 
@@ -38,7 +42,7 @@ public class AuthService {
 
     public Long getMemberId(String accessToken) {
         return sessionManager.getMemberId(accessToken).orElseThrow(
-                ()->new RuntimeException("id값 조회 불가")
+                ()->new CustomException(ErrorCode.MEMBER_NOT_FOUND )
         );
     }
 }
